@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Create a role that authorizes Assume Role with policy AdministratorAccess in another account'
+Metadata:
+  Version: 0.1
+Parameters:
+  SourceAccountId:
+    Type: String
+    MaxLength: 12
+    MinLength: 12
+    Description: 12 digit id of the account containing the users to which you're granting access
+Resources:
+  AdminAccessRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: "Dati-acc-2"
+      ManagedPolicyArns:
+      - "arn:aws:iam::aws:policy/AdministratorAccess"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              "AWS": !Join [ "", [ "arn:aws:iam::", !Ref SourceAccountId, ":root" ] ]
+            Action:
+              - "sts:AssumeRole"
