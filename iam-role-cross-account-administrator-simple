@@ -8,11 +8,14 @@ Parameters:
     MaxLength: 12
     MinLength: 12
     Description: 12 digit id of the account containing the users to which you're granting access
+  RoleName:
+    Type: String
+    Description: Set the role name to make Switch Role and granting access
 Resources:
   AdminAccessRole:
     Type: AWS::IAM::Role
     Properties:
-      RoleName: "Dati-acc-2"
+      RoleName: !Ref "RoleName"
       ManagedPolicyArns:
       - "arn:aws:iam::aws:policy/AdministratorAccess"
       AssumeRolePolicyDocument:
