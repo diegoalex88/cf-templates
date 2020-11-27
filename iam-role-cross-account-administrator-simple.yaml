@@ -10,7 +10,7 @@ Parameters:
     Description: 12 digit id of the account containing the users to which you're granting access
   RoleName:
     Type: String
-    Description: Set the role name to make Switch Role and granting access
+    Description: Set the role name to execute Switch Role and granting access
 Resources:
   AdminAccessRole:
     Type: AWS::IAM::Role
