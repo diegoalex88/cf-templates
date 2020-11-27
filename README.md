@@ -1,5 +1,5 @@
 # cf-templates
-Templates for AWS Cloudfront
+Templates for AWS Cloudformation
 
 ## iam-role-cross-account-administrator-simple
 This Cloudformation template make a role for users in another account makes "switch role" by sts:assumerole with policy AdministratorAccess.
